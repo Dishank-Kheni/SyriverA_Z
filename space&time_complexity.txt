@@ -1,0 +1,25 @@
+Time Complexity: The rate at which time taken increases with respect to the input size. 
+
+It can be defined using three methoods.
+1. Biga
+2. Omega
+3. Theta
+
+Things to take care during calculating Time Complexity:
+1. Always calculate Time Complexity with assuming worst case scenario
+2. Avoid constant time
+3. Avoid lower svalues
+
+Big-oh (O) -> worst case [Upper-Bond]
+Theta -> [Average Complexity]
+Omega -> Best case[Lower-Bond]
+
+
+Space Complexity: The memory space that program takes to complete task.
+
+Auxilary Space: Space that take to solve the problem
+Input Space: The space that you take to store the input
+
+Space Complexity = Auxilary Space + Input Space (c= a+b)
+
+Note: Never manipulate inpute data in order to save space.
