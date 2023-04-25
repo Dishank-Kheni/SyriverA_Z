@@ -1,1 +1,1 @@
-print(pow(10, 0))
+print(3 % 2)
