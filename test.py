@@ -37,14 +37,14 @@ from math import ceil, floor, sqrt
 # print(ord('bca'))
 
 
-a = {"a": 1, "b": 2, "A": 2, "d": 6, "c": 3}
+# a = {"a": 1, "b": 2, "A": 2, "d": 6, "c": 3}
 
-temp = sorted(a.items(), key=lambda item: item[1], reverse=True)
-print(temp)
-print(temp[0][1])
+# temp = sorted(a.items(), key=lambda item: item[1], reverse=True)
+# print(temp)
+# print(temp[0][1])
 
-# print(a.get("f"))
-a["f"] = 2
+# # print(a.get("f"))
+# a["f"] = 2
 # print(a.get("f"))
 # print(a)
 # s = set(a.items())
@@ -69,5 +69,7 @@ a["f"] = 2
 # print(s)
 
 
-print(atoi('   -21'))
-print(atoi('   -21'))
+# print(atoi('   -21'))
+# print(atoi('   -21'))
+
+print(0 / 2)

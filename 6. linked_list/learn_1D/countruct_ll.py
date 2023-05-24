@@ -1,7 +1,6 @@
 # Node class
 class Node:
 
-    # Function to initialize the node object
     def __init__(self, data):
         self.data = data  # Assign data
         self.next = None  # Initialize next as null
@@ -9,10 +8,17 @@ class Node:
     def __repr__(self):
         return str(self.data)
 
-# Linked List class
-
 
 class LinkedList:
+
+    def __init__(self, nodes=None):
+        self.head = None
+        if nodes is not None:
+            node = Node(data=nodes.pop(0))
+            self.head = node
+            for elem in nodes:
+                node.next = Node(data=elem)
+                node = node.next
 
     def __iter__(self):
         node = self.head
@@ -28,18 +34,6 @@ class LinkedList:
             node = node.next
         nodes.append("None")
         return " -> ".join(nodes)
-    # Function to initialize the Linked
-    # List object
-
-    def __init__(self, nodes=None):
-        self.head = None
-        if nodes is not None:
-            node = Node(data=nodes.pop(0))
-            self.head = node
-            for elem in nodes:
-                node.next = Node(data=elem)
-                node = node.next
-            # self.head = None
 
     def add_first(self, node):
         node.next = self.head
@@ -80,10 +74,6 @@ class LinkedList:
             pre_node = node
         raise Exception("Node with data '%s' not found" % target_node_data)
 
-    # def add_between(self, existNode, newNode):
-    #     newNode.next = existNode.next
-    #     existNode.next = newNode
-
     def remove_node(self, target_node_data):
         if self.head is None:
             raise Exception("List is empty")
@@ -101,43 +91,17 @@ class LinkedList:
 
         raise Exception("Node with data '%s' not found" % target_node_data)
 
-    # This function prints contents of linked list
-    # starting from head
-
-    def __len__(self):
-        count = 0
-        for node in self:
-            count += 1
-        return count
-
     def printList(self):
         temp = self.head
         while (temp):
             print(temp.data)
             temp = temp.next
 
-    def middelNode(self):
-        lenght = self.__len__()
-        temp = 0
-        for node in self:
-            if temp == (lenght//2):
-                break
-            temp += 1
-
-        return node
-
-    # def __iter__(self):
-    #     node = self.head
-    #     while node is not None:
-    #         yield node
-    #         node = node.next
-
 
 # Code execution starts here
 if __name__ == '__main__':
 
-    # Start with the empty list
-    llist = LinkedList([1, 2, 3, 4])
+    llist = LinkedList([1])
     # llist = LinkedList([1])
 
     # llist.head = Node(1)
@@ -146,15 +110,12 @@ if __name__ == '__main__':
 
     # llist.head.next = second  # Link first node with second
     # second.next = third  # Link second node with the third node
-    # llist.add_first(node=Node(7))
-    # llist.add_last(node=Node(6))
+    llist.add_first(node=Node(7))
+    llist.add_last(node=Node(6))
     # llist.add_between(existNode=third, newNode=Node(15))
     # llist.printList()
     print(llist)
 
-    # for node in llist:
-    #     print(node)
-
-    print(llist.middelNode())
-
+    for node in llist:
+        print(node)
     # print(llist.__iter__())
