@@ -47,7 +47,7 @@ class LinkedList:
         n = self.reverse(node.next)
         node.next.next = node
         node.next = None
-        return n
+        # return n
     #     n.next = node
     #     return node
 
@@ -67,23 +67,24 @@ if __name__ == '__main__':
 
     # Start with the empty list
     llist = LinkedList([1, 2, 3, 4])
-    # print(llist)
-    llist1 = LinkedList([4, 3, 2, 2, 1])
-    llist2 = LinkedList([3, 1])
+    llist.reverse(llist.head)
+    print(llist)
+    # llist1 = LinkedList([4, 3, 2, 2, 1])
+    # llist2 = LinkedList([3, 1])
 
-    n1 = Node(6)
-    n2 = Node(7)
+    # n1 = Node(6)
+    # n2 = Node(7)
 
-    llist1.add_after(1, n1)
-    llist1.add_after(1, n2)
-    llist2.add_after(1, n1)
-    llist2.add_after(1, n2)
+    # llist1.add_after(1, n1)
+    # llist1.add_after(1, n2)
+    # llist2.add_after(1, n1)
+    # llist2.add_after(1, n2)
 
-    print(llist1)
-    print(llist2)
+    # print(llist1)
+    # print(llist2)
 
-    llist1.reverse(llist1.head)
-    llist2.reverse(llist2.head)
+    # llist1.reverse(llist1.head)
+    # llist2.reverse(llist2.head)
     # llist.reverse(llist.head)
 
     # def reverse(node) -> Node:
@@ -95,6 +96,6 @@ if __name__ == '__main__':
 
     # n = reverse(llist.head)
     # n.next = None
-    print(llist1)
-    print(llist2)
+    # print(llist1)
+    # print(llist2)
     # print(llist)

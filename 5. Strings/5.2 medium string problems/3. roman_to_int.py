@@ -15,7 +15,7 @@ def romanToInt(s):
     s.replace('XC', 'LXXXX')
     s.replace('CD', 'CCCC')
     s.replace('CM', 'DCCCC')
-
+    
     count = 0
 
     for each in s:

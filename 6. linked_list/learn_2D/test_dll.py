@@ -5,6 +5,7 @@ class Node:
     def __init__(self, data):
         self.data = data  # Assign data
         self.next = None  # Initialize next as null
+        self.prev = None
 
     def __repr__(self):
         return str(self.data)
@@ -12,7 +13,7 @@ class Node:
 # Linked List class
 
 
-class LinkedList:
+class DoublyLinkedList:
 
     def __iter__(self):
         node = self.head
@@ -38,15 +39,44 @@ class LinkedList:
             self.head = node
             for elem in nodes:
                 node.next = Node(data=elem)
+                node.next.prev = node
                 node = node.next
             # self.head = None
 
-    def add_first(self, node):
+    def deleteAllOccurOfX(self, key):
         if self.head is None:
-            self.head = node
-            return
+            raise Exception("List is empty")
 
-        self.head.prev = node
+        while self.head.data == key:
+            self.head = self.head.next
+
+        previous_node = self.head
+        for node in self:
+            if node.data == key:
+                previous_node.next = node.next
+            else:
+                previous_node = node
+
+        # raise Exception("Node with data '%s' not found" % key)
+
+    def reverse(self):
+        pass
+
+    def findPairsWithGivenSum(self, sum):
+        pass
+
+    def removeDuplicates(self):
+        if self.head is None:
+            raise Exception("List is empty")
+
+        previous_node = self.head
+        for node in self:
+            if node.data == previous_node.data:
+                previous_node.next = node.next
+            else:
+                previous_node = node
+
+    def add_first(self, node):
         node.next = self.head
         self.head = node
 
@@ -57,7 +87,6 @@ class LinkedList:
         for current_node in self:
             pass
         current_node.next = node
-        node.prev = current_node
 
     def add_after(self, target_node_data, new_node):
         if self.head is None:
@@ -67,7 +96,6 @@ class LinkedList:
             if node.data == target_node_data:
                 new_node.next = node.next
                 node.next = new_node
-                new_node.prev = node
                 return
         raise Exception("Node with data '%s' not found" % target_node_data)
 
@@ -82,7 +110,6 @@ class LinkedList:
         for node in self:
             if node.data == target_node_data:
                 pre_node.next = new_node
-                new_node.prev = pre_node
                 new_node.next = node
                 return
             pre_node = node
@@ -103,31 +130,14 @@ class LinkedList:
         previous_node = self.head
         for node in self:
             if node.data == target_node_data:
-                node.next.prev = previous_node
                 previous_node.next = node.next
                 return
             previous_node = node
 
         raise Exception("Node with data '%s' not found" % target_node_data)
 
-    def remove_last_node(self):
-        if self.head is None:
-            raise Exception("List is empty")
-
-        previous_node = self.head
-        for node in self:
-            if node.next is None:
-                previous_node.next = None
-                return
-            previous_node = node
     # This function prints contents of linked list
     # starting from head
-
-    def reverse(self):
-        
-        
-        
-        pass
 
     def __len__(self):
         count = 0
@@ -151,6 +161,28 @@ class LinkedList:
 
         return node
 
+    def get_last_node(self):
+        for current_node in self:
+            pass
+        return current_node
+
+    def findPairsWithGivenSum(self, target):
+        pairs = []
+        start = self.head
+        end = self.get_last_node()
+
+        while start.next is not None and end.prev is not None and start.data <= end.data:
+            total = start.data + end.data
+            if total > target:
+                end = end.prev
+                continue
+            elif total < target:
+                start = start.next
+                continue
+            else:
+                pairs.append((start.data, end.data))
+                start = start.next
+        return pairs
     # def __iter__(self):
     #     node = self.head
     #     while node is not None:
@@ -162,7 +194,9 @@ class LinkedList:
 if __name__ == '__main__':
 
     # Start with the empty list
-    llist = LinkedList([1, 2, 3, 4])
+    # llist = DoublyLinkedList([1, 2, 4, 5, 6, 8, 9])
+    # llist = DoublyLinkedList([1, 5, 6])
+    llist = DoublyLinkedList([1, 1, 1, 2, 3, 4, 5, 6])
     # llist = LinkedList([1])
 
     # llist.head = Node(1)
@@ -175,11 +209,15 @@ if __name__ == '__main__':
     # llist.add_last(node=Node(6))
     # llist.add_between(existNode=third, newNode=Node(15))
     # llist.printList()
+
+    # llist.deleteAllOccurOfX(2)
+    # print(llist.findPairsWithGivenSum(6))
+    llist.removeDuplicates()
     print(llist)
 
     # for node in llist:
     #     print(node)
 
-    print(llist.middelNode())
+    # print(llist.middelNode())
 
     # print(llist.__iter__())

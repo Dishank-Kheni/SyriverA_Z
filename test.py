@@ -1,5 +1,7 @@
+from collections import deque
 from locale import atoi
 from math import ceil, floor, sqrt
+from queue import LifoQueue
 
 # print(3 % 2)
 
@@ -72,4 +74,53 @@ from math import ceil, floor, sqrt
 # print(atoi('   -21'))
 # print(atoi('   -21'))
 
-print(0 / 2)
+# print(0 / 2)
+
+
+# s = "9"
+
+# s = s * 3
+
+# print(s*2)
+
+
+# s = [False for _ in range(3)]
+# print(s)
+
+
+st = LifoQueue()
+
+# print(st)
+
+# st._put([1, 2, 3])
+# st.put(4)
+# print(st)
+# print(st.get())
+# print(st.get())
+
+
+# c = [1, 2, 3, 4]
+# print(c[-1])
+# for i in range(-1, -1, 5):
+#     print(i)
+
+
+# st = deque()
+
+# c = []
+
+
+# kVal = dict()
+
+# kVal[1] = 1
+# # kVal[2] = 2
+
+# print(len(kVal))
+
+
+# s = "abdejv"
+# print(len(s))
+
+# print(kVal)
+
+print(1//2)

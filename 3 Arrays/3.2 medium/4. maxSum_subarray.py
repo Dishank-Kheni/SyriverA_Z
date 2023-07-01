@@ -2,7 +2,6 @@ import sys
 
 # INSPIRED
 
-
 def maxSubarraySum(a):
     maxi = -sys.maxsize-1
     sum = 0
