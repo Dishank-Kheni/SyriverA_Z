@@ -124,3 +124,7 @@ st = LifoQueue()
 # print(kVal)
 
 print(1//2)
+
+
+print(ord('>'))
+print(ord('*'))
