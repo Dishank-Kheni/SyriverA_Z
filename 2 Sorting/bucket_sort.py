@@ -11,8 +11,11 @@ def bucketSort():
     for i in range(len(bucket)):
         bucket[i] = sorted(bucket[i])
 
+    result = []
     for each in bucket:
-        print(each)
+        result += each
+
+    print(result)
 
 
 bucketSort()
